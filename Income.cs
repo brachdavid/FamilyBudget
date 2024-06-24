@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FamilyBudget
 {
-    public class Income : EntityBase<Income>
+    public class Income : EntityBase<Income>, ITransaction
     {
         public string ItemName { get; private set; }
         public double ItemValue { get; private set; }
@@ -18,7 +18,7 @@ namespace FamilyBudget
         }
         public override string ToString()
         {
-            return $"Id: {Id}\tItem name: {ItemName}\tItem value: {ItemValue} Kč";
+            return $"Id: {Id}\t\tItem name: {ItemName}\t\tItem value: {ItemValue} Kč";
         }
     }
 }

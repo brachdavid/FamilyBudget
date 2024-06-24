@@ -10,41 +10,47 @@ namespace FamilyBudget
     {
         public double TotalBudget { get; private set; } = 100000;
 
-        private List<Income> incomes;
-        private List<Expense> expenses;
+        public List<Income> Incomes { get; private set; }
+        public List<Expense> Expenses { get; private set; }
 
         public Budget() 
         {
-            incomes = new List<Income>();
-            expenses = new List<Expense>();
+            Incomes = new List<Income>();
+            Expenses = new List<Expense>();
         }
 
         public void AddIncome(string itemName, double itemValue)
         {
-            incomes.Add(new Income(itemName, itemValue));
+            Incomes.Add(new Income(itemName, itemValue));
             TotalBudget += itemValue;
         }
 
         public void AddExpense(string itemName, double itemValue)
         {
-            expenses.Add(new Expense(itemName, itemValue));
+            Expenses.Add(new Expense(itemName, itemValue));
             TotalBudget -= itemValue;
         }
 
         public void PrintIncomes()
         {
-            foreach (Income income in incomes)
-                Console.WriteLine(income);
+            if (Incomes.Count == 0)
+                Console.WriteLine("No incomes recorded.");
+            else
+                foreach (Income income in Incomes)
+                    Console.WriteLine(income);
         }
         public void PrintExpenses()
         {
-            foreach(Expense expense in expenses)
-                Console.WriteLine(expense);
+            if (Expenses.Count == 0)
+                Console.WriteLine("No expenses recorded.");
+            else
+                foreach (Expense expense in Expenses)
+                    Console.WriteLine(expense);
         }
 
-        public bool EmptyList()
+        public override string ToString()
         {
-            return incomes.Count == 0 || expenses.Count == 0;
+            return $"We have {TotalBudget} Czech crowns in our family budget just now.";
         }
     }
 }

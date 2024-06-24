@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace FamilyBudget
 {
-    public class Expense : EntityBase<Expense>
+    public class Expense : EntityBase<Expense>, ITransaction
     {
         public string ItemName { get; private set; }
         public double ItemValue { get; private set; }
-        public Expense(string itemValue, double amount) 
+        public Expense(string itemName, double itemValue) 
         {
-            ItemName = itemValue;
-            ItemValue = amount;
+            ItemName = itemName;
+            ItemValue = itemValue;
         }
         public override string ToString()
         {
-            return $"Id: {Id}\tItem name: {ItemName}\tItem value: {ItemValue} Kč";
+            return $"Id: {Id}\t\tItem name: {ItemName}\t\tItem value: {ItemValue} Kč";
         }
     }
 }
