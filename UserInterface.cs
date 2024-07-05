@@ -16,11 +16,12 @@ namespace FamilyBudget
         public void RunProgram()
         {
             char choice = '0';
-            while (choice != '7')
+            while (choice != '9')
             {
                 PrintMenu();
+                Console.Write("Your choice: ");
                 choice = Console.ReadKey().KeyChar;
-                Console.WriteLine();
+                Console.WriteLine("\n");
                 ProcessChoice(choice);
             }
             PrintMenu();
@@ -36,8 +37,10 @@ namespace FamilyBudget
             Console.WriteLine("3 - Print all expenses.");
             Console.WriteLine("4 - Print all incomes");
             Console.WriteLine("5 - Print all transactions.");
-            Console.WriteLine("6 - How much money is in our family budget?");
-            Console.WriteLine("7 - Exit the program.");
+            Console.WriteLine("6 - Sort the expenses by value.");
+            Console.WriteLine("7 - Sort the incomes by value.");
+            Console.WriteLine("8 - How much money is in our family budget?");
+            Console.WriteLine("9 - Exit the program.\n");
         }
 
         private void ProcessChoice(char choice)
@@ -60,6 +63,12 @@ namespace FamilyBudget
                     PrintAllTransactions();
                     break;
                 case '6':
+                    FamilyBudget.PrintSortedExpenses();
+                    break;
+                case '7':
+                    FamilyBudget.PrintSortedIncomes();
+                    break;
+                case '8':
                     Console.WriteLine(FamilyBudget);
                     break;
                 default:
@@ -121,7 +130,7 @@ namespace FamilyBudget
         }
         private void PrintMessage()
         {
-            Console.WriteLine("Press any key to return to the main menu.");
+            Console.WriteLine("\nPress any key to return to the main menu.");
         }
     }
 }

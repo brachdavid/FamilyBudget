@@ -48,6 +48,31 @@ namespace FamilyBudget
                     Console.WriteLine(expense);
         }
 
+        public void PrintSortedExpenses()
+        {
+            var query = from expense in Expenses
+                        orderby expense.ItemValue
+                        select expense;
+
+            if (Expenses.Count == 0)
+                Console.WriteLine("No expenses recorded.");
+            else
+                foreach (Expense expense in query)
+                    Console.WriteLine(expense);
+        }
+        public void PrintSortedIncomes()
+        {
+            var query = from income in Incomes
+                        orderby income.ItemValue
+                        select income;
+
+            if (Incomes.Count == 0)
+                Console.WriteLine("No expenses recorded.");
+            else
+                foreach (Income income in query)
+                    Console.WriteLine(income);
+        }
+
         public override string ToString()
         {
             return $"We have {TotalBudget} Czech crowns in our family budget just now.";
