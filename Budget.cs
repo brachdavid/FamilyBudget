@@ -9,7 +9,6 @@ namespace FamilyBudget
     public class Budget
     {
         public double TotalBudget { get; private set; } = 100000;
-
         public List<Income> Incomes { get; private set; }
         public List<Expense> Expenses { get; private set; }
 
@@ -39,6 +38,7 @@ namespace FamilyBudget
                 foreach (Income income in Incomes)
                     Console.WriteLine(income);
         }
+
         public void PrintExpenses()
         {
             if (Expenses.Count == 0)
@@ -60,6 +60,7 @@ namespace FamilyBudget
                 foreach (Expense expense in query)
                     Console.WriteLine(expense);
         }
+
         public void PrintSortedIncomes()
         {
             var query = from income in Incomes
