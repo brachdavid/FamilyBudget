@@ -6,13 +6,27 @@ using System.Threading.Tasks;
 
 namespace FamilyBudget
 {
+    /// <summary>
+    /// Třída UserInterface spravuje interakci uživatele s aplikací.
+    /// </summary>
     public class UserInterface
     {
+        /// <summary>
+        /// Vytvoření instance třídy Budget
+        /// </summary>
         public Budget FamilyBudget { get; private set; }
+
+        /// <summary>
+        /// Konstruktor inicializující nový rodinný rozpočet
+        /// </summary>
         public UserInterface()
         {
             FamilyBudget = new Budget();
         }
+
+        /// <summary>
+        /// Metoda spouští hlavní vlákno programu
+        /// </summary>
         public void RunProgram()
         {
             char choice = '0';
@@ -26,6 +40,10 @@ namespace FamilyBudget
             }
             PrintMenu();
         }
+
+        /// <summary>
+        /// Metoda vypíše hlavní nabídku programu
+        /// </summary>
         private void PrintMenu()
         {
             Console.Clear();
@@ -43,6 +61,10 @@ namespace FamilyBudget
             Console.WriteLine("9 - Exit the program.\n");
         }
 
+        /// <summary>
+        /// Metoda zpracovává uživatelskou volbu
+        /// </summary>
+        /// <param name="choice">Uživatelská volba</param>
         private void ProcessChoice(char choice)
         {
             switch (choice)
@@ -79,6 +101,9 @@ namespace FamilyBudget
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Metoda získává informace od uživatele a vytváří přitom novou výdajovou položku
+        /// </summary>
         private void SpendMoney()
         {
             Console.WriteLine("What did you spend the money on?");
@@ -87,6 +112,9 @@ namespace FamilyBudget
             FamilyBudget.AddExpense(itemName, itemValue);
         }
 
+        /// <summary>
+        /// Metoda získává informace od uživatele a vytváří přitom novou příjmovou položku
+        /// </summary>
         private void GetMoney()
         {
             Console.WriteLine("What did you get the money for?");
@@ -94,18 +122,31 @@ namespace FamilyBudget
             double itemValue = GetItemValue();
             FamilyBudget.AddIncome(itemName, itemValue);
         }
+
+        /// <summary>
+        /// Metoda získává název položky
+        /// </summary>
+        /// <returns>Název položky</returns>
         private string GetItemName()
         {
             Console.Write("Item name: ");
             return ReturnValidatedText();
         }
 
+        /// <summary>
+        /// Metoda získává hodnotu položky
+        /// </summary>
+        /// <returns>Hodnota položky</returns>
         private double GetItemValue()
         {
             Console.Write("Item value: ");
             return ReturnValidatedNumber();
         }
 
+        /// <summary>
+        /// Metoda vrací zvalidovaný název položky
+        /// </summary>
+        /// <returns>Zvalidovaný název položky</returns>
         private string ReturnValidatedText()
         {
             string userInput;
@@ -114,6 +155,10 @@ namespace FamilyBudget
             return userInput;
         }
 
+        /// <summary>
+        /// Metoda vrací zvalidovanou hodnotu položky
+        /// </summary>
+        /// <returns>Zvalidovaná hodnota položky</returns>
         private double ReturnValidatedNumber()
         {
             double userInput;
@@ -121,6 +166,10 @@ namespace FamilyBudget
                 Console.WriteLine("Item value must be a number (greater than zero). Please try again.");
             return userInput;
         }
+
+        /// <summary>
+        /// Metoda vypíše všechny provedené transakce (příjmy i výdaje)
+        /// </summary>
         private void PrintAllTransactions()
         {
             Console.WriteLine("Incomes:");
@@ -128,6 +177,10 @@ namespace FamilyBudget
             Console.WriteLine("\nExpenses:");
             FamilyBudget.PrintExpenses();
         }
+
+        /// <summary>
+        /// Metoda vypíše často opakující se větu 
+        /// </summary>
         private void PrintMessage()
         {
             Console.WriteLine("\nPress any key to return to the main menu.");
