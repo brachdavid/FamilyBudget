@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FamilyBudget
+﻿namespace FamilyBudget
 {
     /// <summary>
     /// Rozhraní ITransaction definuje základní vlastnosti transakce, jako jsou název položky, její hodnota a ID.

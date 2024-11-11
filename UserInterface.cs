@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FamilyBudget
+﻿namespace FamilyBudget
 {
     /// <summary>
     /// Třída UserInterface spravuje interakci uživatele s aplikací.
@@ -127,7 +121,7 @@ namespace FamilyBudget
         /// Metoda získává název položky
         /// </summary>
         /// <returns>Název položky</returns>
-        private string GetItemName()
+        private static string GetItemName()
         {
             Console.Write("Item name: ");
             return ReturnValidatedText();
@@ -137,7 +131,7 @@ namespace FamilyBudget
         /// Metoda získává hodnotu položky
         /// </summary>
         /// <returns>Hodnota položky</returns>
-        private double GetItemValue()
+        private static double GetItemValue()
         {
             Console.Write("Item value: ");
             return ReturnValidatedNumber();
@@ -147,7 +141,7 @@ namespace FamilyBudget
         /// Metoda vrací zvalidovaný název položky
         /// </summary>
         /// <returns>Zvalidovaný název položky</returns>
-        private string ReturnValidatedText()
+        private static string ReturnValidatedText()
         {
             string userInput;
             while (string.IsNullOrWhiteSpace(userInput = Console.ReadLine()!.Trim()))
@@ -159,7 +153,7 @@ namespace FamilyBudget
         /// Metoda vrací zvalidovanou hodnotu položky
         /// </summary>
         /// <returns>Zvalidovaná hodnota položky</returns>
-        private double ReturnValidatedNumber()
+        private static double ReturnValidatedNumber()
         {
             double userInput;
             while (!double.TryParse(Console.ReadLine()!, out userInput) || userInput <= 0)
@@ -181,7 +175,7 @@ namespace FamilyBudget
         /// <summary>
         /// Metoda vypíše často opakující se větu 
         /// </summary>
-        private void PrintMessage()
+        private static void PrintMessage()
         {
             Console.WriteLine("\nPress any key to return to the main menu.");
         }

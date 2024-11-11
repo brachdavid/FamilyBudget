@@ -1,36 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FamilyBudget
+﻿namespace FamilyBudget
 {
     /// <summary>
     /// Třída Expense představuje výdaj a dědí z EntityBase.
     /// </summary>
-    public class Expense : EntityBase<Expense>, ITransaction
+    /// <remarks>
+    /// Konstruktor pro vytvoření nové výdajové položky
+    /// </remarks>
+    /// <param name="itemName">Název výdajové položky</param>
+    /// <param name="itemValue">Hodnota výdajové položky</param>
+    public class Expense(string itemName, double itemValue) : EntityBase<Expense>, ITransaction
     {
         /// <summary>
         /// Název výdajové položky
         /// </summary>
-        public string ItemName { get; private set; }
+        public string ItemName { get; private set; } = itemName;
 
         /// <summary>
         /// Hodnota výdajové položky
         /// </summary>
-        public double ItemValue { get; private set; }
-
-        /// <summary>
-        /// Konstruktor pro vytvoření nové výdajové položky
-        /// </summary>
-        /// <param name="itemName">Název výdajové položky</param>
-        /// <param name="itemValue">Hodnota výdajové položky</param>
-        public Expense(string itemName, double itemValue) 
-        {
-            ItemName = itemName;
-            ItemValue = itemValue;
-        }
+        public double ItemValue { get; private set; } = itemValue;
 
         /// <summary>
         /// Metoda vypíše ID, název a hodnotu výdajové položky

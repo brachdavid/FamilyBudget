@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FamilyBudget
+﻿namespace FamilyBudget
 {
     /// <summary>
     /// Třída Budget obsahující logiku pro správu příjmů a výdajů
@@ -31,8 +25,8 @@ namespace FamilyBudget
         /// </summary>
         public Budget() 
         {
-            Incomes = new List<Income>();
-            Expenses = new List<Expense>();
+            Incomes = [];
+            Expenses = [];
         }
 
         /// <summary>

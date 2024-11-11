@@ -1,36 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FamilyBudget
+﻿namespace FamilyBudget
 {
     /// <summary>
     /// Třída Income představuje příjem a dědí z EntityBase.
     /// </summary>
-    public class Income : EntityBase<Income>, ITransaction
+    /// <remarks>
+    /// Konstruktor pro vytvoření nové příjmové položky
+    /// </remarks>
+    /// <param name="itemName">Název příjmové položky</param>
+    /// <param name="itemValue">Hodnota příjmové položky</param>
+    public class Income(string itemName, double itemValue) : EntityBase<Income>, ITransaction
     {
         /// <summary>
         /// Název příjmové položky
         /// </summary>
-        public string ItemName { get; private set; }
+        public string ItemName { get; private set; } = itemName;
 
         /// <summary>
         /// Hodnota příjmové položky
         /// </summary>
-        public double ItemValue { get; private set; }
-
-        /// <summary>
-        /// Konstruktor pro vytvoření nové příjmové položky
-        /// </summary>
-        /// <param name="itemName">Název příjmové položky</param>
-        /// <param name="itemValue">Hodnota příjmové položky</param>
-        public Income(string itemName, double itemValue)
-        {
-            ItemName = itemName;
-            ItemValue = itemValue; 
-        }
+        public double ItemValue { get; private set; } = itemValue;
 
         /// <summary>
         /// Metoda vypíše ID, název a hodnotu výdajové položky
